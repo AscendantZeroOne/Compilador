@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCT IDE</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        var nts = null;
+        var nonTerminals = null;
+        var gram = null;
+        var gramTable = null;
+        var ERRO = -1;
+        var TOKEN_SYNC = -2;
+    </script>
+    <script src="parsing.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>FCT IDE</h2>
+        <div class="buttons">
+            <button onclick="createFile()">New File</button>
+            <button onclick="openFile()">Open File</button>
+            <button onclick="saveFile()">Save File</button>
+            <button onclick="buildTable()">Build</button>
+            <button onclick="syntAnalysis()">Syntatic Analysis</button>
+        </div>
+        <div class="editor-container">
+            <div id="line-numbers">1</div>
+            <div id="editor-wrapper">
+                <div id="highlighting"></div>
+                <div id="editor" contenteditable="true" oninput="updateHighlighting(); updateLineNumbers();" onscroll="syncScroll()"></div>
+            </div>
+        </div>
+        <div id="table-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
